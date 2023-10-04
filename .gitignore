@@ -22,6 +22,10 @@
 *.la
 *.lo
 
+# Local things
+.vscode
+.DS_STORE
+
 # Shared objects (inc. Windows DLLs)
 *.dll
 *.so
