@@ -19,7 +19,7 @@ Contacts::Contacts(std::string name) : _firstName(name) {
 }
 
 Contacts::~Contacts() {
-	std::cout << "Constructor called." << std::endl;
+	std::cout << "Destructor called." << std::endl;
 	return;
 }
 
@@ -27,7 +27,7 @@ std::string Contacts::getFirstName() const {
 	return (this->_firstName);
 }
 
-std::string setFirstName(std::string name) {
-	
+void Contacts::setFirstName(std::string name) {
+	this->_firstName = name;
 	return;
 }

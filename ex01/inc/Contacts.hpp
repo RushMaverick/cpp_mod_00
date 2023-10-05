@@ -18,12 +18,8 @@ class Contacts {
 	public:
 		Contacts(std::string name);
 		~Contacts();
-		std::string setFirstName(std::string name);
+		void setFirstName(std::string name);
 		std::string getFirstName() const;
-
-
-
-
 };
 
 #endif

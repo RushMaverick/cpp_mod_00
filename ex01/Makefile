@@ -16,7 +16,7 @@ FLAGS    := -Wall -Wextra -Werror -std=c++98
 ################################################################################
 
 SRCS        :=      Phonebook.cpp \
-                        ß  
+
 OBJS        := ${SRCS:.cpp=.o}
 
 .cpp.o:
