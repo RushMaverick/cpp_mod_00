@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:56:26 by rrask             #+#    #+#             */
-/*   Updated: 2023/10/06 11:32:28 by rrask            ###   ########.fr       */
+/*   Updated: 2023/10/06 15:31:29 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 int main (void)
 {
 	Contact newContact("Greg");
+	PhoneBook newPhonebook("Johannes");
 	std::string a;
 	while (42)
 	{
 		std::cout << "Should I terminate?" << std::endl;
 		std::getline(std::cin, a);
 		if (std::cin.eof()){
+			std::cout << std::flush;
 			std::cout << "Well duck you too." << std::endl;
 			break; 
 		}
@@ -30,9 +32,13 @@ int main (void)
 			break;
 		}
 		if (a.compare("Add") == 0) {
-			std::cout << "Well I didn't want your opinion anyway." << std::endl;
+			std::cout << std::flush;
+			newPhonebook.addMethod();
 		}
-		break;
+		if (a.compare("Search") == 0) {
+			std::cout << std::flush;
+			newPhonebook.searchMethod();
+		}
 	}
 	return 0;
 }

@@ -6,10 +6,15 @@
 #include "Contact.hpp"
 
 class PhoneBook {
-	public:
-
 	private:
+		std::string _name;
 
+	public:
+		void searchMethod();
+		void addMethod();
+		void exitMethod();
+		PhoneBook(std::string name);
+		~PhoneBook();
 };
 
 #endif
