@@ -1,7 +1,9 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-#include <Contacts.hpp>
+#define MAX_CONTACTS 8
+
+#include "Contact.hpp"
 
 class PhoneBook {
 	public:
