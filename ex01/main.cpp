@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:56:26 by rrask             #+#    #+#             */
-/*   Updated: 2023/10/06 15:31:29 by rrask            ###   ########.fr       */
+/*   Updated: 2023/10/09 12:51:50 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 int main (void)
 {
-	Contact newContact("Greg");
-	PhoneBook newPhonebook("Johannes");
+	PhoneBook newPhonebook;
 	std::string a;
 	while (42)
 	{
@@ -28,7 +27,6 @@ int main (void)
 			break; 
 		}
 		if (a.compare("Exit") == 0) {
-			std::cout << "kthxbye" << std::endl;
 			break;
 		}
 		if (a.compare("Add") == 0) {
