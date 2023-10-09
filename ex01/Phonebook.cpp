@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:13:03 by rrask             #+#    #+#             */
-/*   Updated: 2023/10/09 15:08:28 by rrask            ###   ########.fr       */
+/*   Updated: 2023/10/09 15:42:07 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 	Contact *contact;
 	int index = this->_contactCount;
 	contact = this->getContact(index);
+
 	contact->setFirstName(this->_readInput("Enter first name: "));
-	for (int i = 0; i < MAX_CONTACTS; i++)
-		std::cout << this->_contacts[i].getFirstName() << std::endl;
+	// for (int i = 0; i < MAX_CONTACTS; i++)
+	// 	std::cout << this->_contacts[i].getFirstName() << std::endl;
 	this->_contactCount++;
 	return;
 }
