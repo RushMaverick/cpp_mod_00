@@ -9,7 +9,8 @@ class PhoneBook {
 	private:
 		std::string _name;
 		Contact _contacts[MAX_CONTACTS];
-		Contact *getContact(int index); 
+		Contact *getContact(int index);
+		std::string	_readInput(std::string prompt) const;
 		int _contactCount;
 
 	public:

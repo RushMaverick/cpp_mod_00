@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:12:56 by rrask             #+#    #+#             */
-/*   Updated: 2023/10/09 12:41:10 by rrask            ###   ########.fr       */
+/*   Updated: 2023/10/09 14:54:15 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,4 @@ std::string Contact::getFirstName() const {
 
 void Contact::setFirstName(std::string name) {
 	this->_firstName = name;
-	return;
 }

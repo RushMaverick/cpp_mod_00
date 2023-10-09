@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:13:03 by rrask             #+#    #+#             */
-/*   Updated: 2023/10/09 13:07:14 by rrask            ###   ########.fr       */
+/*   Updated: 2023/10/09 15:08:28 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,22 @@
 #include "Phonebook.hpp"
 
  void PhoneBook::addMethod() {
-	// Contact *contact;
-	Contact newContact;
-	//Set contacts[_contactCount] details by user input.
-	this->_contacts[_contactCount] = newContact;
-	// int index = this->_contactCount;
-	// Let Contact add to its array, setFunctions
+	Contact *contact;
+	int index = this->_contactCount;
+	contact = this->getContact(index);
+	contact->setFirstName(this->_readInput("Enter first name: "));
+	for (int i = 0; i < MAX_CONTACTS; i++)
+		std::cout << this->_contacts[i].getFirstName() << std::endl;
 	this->_contactCount++;
 	return;
+}
+
+std::string PhoneBook::_readInput(std::string prompt) const {
+	std::string line;
+	
+	std::cout << prompt;
+	std::getline(std::cin, line);
+	return (line);
 }
 
 Contact *PhoneBook::getContact(int index) {
