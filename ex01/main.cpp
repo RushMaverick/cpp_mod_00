@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:56:26 by rrask             #+#    #+#             */
-/*   Updated: 2023/10/09 12:51:50 by rrask            ###   ########.fr       */
+/*   Updated: 2023/10/10 12:33:12 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,20 @@ int main (void)
 	std::string a;
 	while (42)
 	{
-		std::cout << "Should I terminate?" << std::endl;
+		std::cout << "Input a command: Add, Search or Exit" << std::endl;
 		std::getline(std::cin, a);
 		if (std::cin.eof()){
 			std::cout << std::flush;
 			std::cout << "Well duck you too." << std::endl;
 			break; 
 		}
-		if (a.compare("Exit") == 0) {
+		else if (a.compare("Exit") == 0) {
 			break;
 		}
-		if (a.compare("Add") == 0) {
-			std::cout << std::flush;
+		else if (a.compare("Add") == 0) {
 			newPhonebook.addMethod();
 		}
-		if (a.compare("Search") == 0) {
-			std::cout << std::flush;
+		else if (a.compare("Search") == 0) {
 			newPhonebook.searchMethod();
 		}
 	}

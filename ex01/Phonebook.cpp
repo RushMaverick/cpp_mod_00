@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:13:03 by rrask             #+#    #+#             */
-/*   Updated: 2023/10/09 15:42:07 by rrask            ###   ########.fr       */
+/*   Updated: 2023/10/10 12:32:44 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 std::string PhoneBook::_readInput(std::string prompt) const {
 	std::string line;
-	
+
 	std::cout << prompt;
 	std::getline(std::cin, line);
 	return (line);
@@ -38,8 +38,15 @@ Contact *PhoneBook::getContact(int index) {
 }
 
 void PhoneBook::searchMethod() {
-	std::cout << "Searching at the moment is pretty sus." << std::endl;
-	return ;
+	int index;
+	std::cout << "Enter a number: ";
+	std::cin >> index;
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+	if (index >= 1 && index <= 8)
+		std::cout << "Yeah, that is there." << std::endl;
+	std::cout << std::endl;
+	return;
 }
 
 PhoneBook::PhoneBook() {
