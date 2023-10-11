@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:13:03 by rrask             #+#    #+#             */
-/*   Updated: 2023/10/11 13:12:29 by rrask            ###   ########.fr       */
+/*   Updated: 2023/10/11 16:02:05 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,14 @@ void PhoneBook::searchMethod() {
 
 	std::cout << std::endl;
 	this->printTable();
+	std::cout << "Test" << std::endl;
 	std::cout << "Enter a number: ";
 	std::cin >> index;
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	if(std::cin.fail()) {
+		std::cout << "That is an invalid index." << std::endl;
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
 
 	if (index >= 1 && index <= 8){
 		index -= 1;
