@@ -3,6 +3,8 @@
 
 #define MAX_CONTACTS 8
 
+#include <iostream>
+#include <iomanip>
 #include "Contact.hpp"
 
 class PhoneBook {
@@ -10,13 +12,17 @@ class PhoneBook {
 		std::string _name;
 		Contact _contacts[MAX_CONTACTS];
 		Contact *getContact(int index);
-		std::string _readInput(std::string prompt) const;
 		int _contactCount;
+		std::string _readInput(std::string prompt) const;
 
 	public:
 		void searchMethod();
 		void addMethod();
-		void exitMethod();
+		void printTable();
+		void printBorder();
+		void printHeader();
+		void printSeparator();
+		void printData(int index, std::string name, std::string lastName, std::string nick) const;
 		PhoneBook();
 		~PhoneBook();
 };
