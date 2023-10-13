@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:13:03 by rrask             #+#    #+#             */
-/*   Updated: 2023/10/11 16:02:05 by rrask            ###   ########.fr       */
+/*   Updated: 2023/10/13 15:51:27 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ Contact *PhoneBook::getContact(int index) {
 	int index = this->_contactCount;
 	contact = this->getContact(index);
 
+	// When index is over 8, warn about overwrite
+	if (index >= MAX_CONTACTS) {
+		std::cout << "Warning: You are about to overwrite "
+		<< contact->getFirstName() 
+		<< std::endl;
+	}
 	std::cout << std::endl;
 	contact->setFirstName(this->_readInput("Enter first name: "));
 	contact->setLastName(this->_readInput("Enter last name: "));
@@ -46,22 +52,26 @@ void PhoneBook::searchMethod() {
 
 	std::cout << std::endl;
 	this->printTable();
-	std::cout << "Test" << std::endl;
 	std::cout << "Enter a number: ";
 	std::cin >> index;
 	if(std::cin.fail()) {
-		std::cout << "That is an invalid index." << std::endl;
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "That is an invalid index." << std::endl;
 	}
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
 	if (index >= 1 && index <= 8){
+		std::cout << "Is this on" << std::endl;
 		index -= 1;
 		contact = this->getContact(index);
 		if (contact != NULL && contact->getFirstName().compare("") != 0) {
-			std::cout << std::setfill('A');
-			// How can I check the array? What state is an unset index of the contacts array?
-			// Display all the information about the contact.
+			std::cout << std::endl;
+			std::cout << "First Name: " << contact->getFirstName() << std::endl;
+			std::cout << "Last Name: " << contact->getLastName() << std::endl;
+			std::cout << "Nickname: " << contact->getNickName() << std::endl;
+			std::cout << "Phone Number: " << contact->getPhoneNbr() << std::endl;
+			std::cout << "Dark Secret: " << contact->getDarkSecret() << std::endl;
 		}
 		else
 			std::cout << "That's empty, doofus." << std::endl;
@@ -81,6 +91,7 @@ void PhoneBook::printTable() {
 		this->printSeparator();
 	}
 	this->printBorder();
+	std::cout << std::endl;
 }
 
 void PhoneBook::printBorder() {
@@ -98,6 +109,7 @@ void PhoneBook::printHeader() {
     std::string header3 = "LastName";
     std::string header4 = "NickName";
 
+	//If header < 10 characters, cut off and append a .
 	std::cout << '|'
 	<< std::setw(3) << std::right
 	<< header1 << '|' <<
