@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:13:03 by rrask             #+#    #+#             */
-/*   Updated: 2023/10/13 15:51:27 by rrask            ###   ########.fr       */
+/*   Updated: 2023/10/15 11:55:28 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 std::string PhoneBook::_readInput(std::string prompt) const {
 	std::string line;
 
+	while (!std::cin.eof())
+	{
 	std::cout << prompt;
-	std::getline(std::cin, line);
+	if (std::getline(std::cin, line) && line != "")
+		break;
+	}
 	return (line);
 }
 
@@ -87,7 +91,9 @@ void PhoneBook::printTable() {
 	this->printBorder();
 	this->printHeader();
 	for (int i = 0; i < _contactCount; i++) {
-		this->printData(i + 1, _contacts[i].getFirstName(), _contacts[i].getLastName(), _contacts[i].getNickName());
+		this->printData(i + 1, this->truncate(_contacts[i].getFirstName(), 10), 
+			this->truncate(_contacts[i].getLastName(), 10),
+			this->truncate(_contacts[i].getNickName(), 10));
 		this->printSeparator();
 	}
 	this->printBorder();
@@ -133,6 +139,13 @@ void PhoneBook::printData(int index, std::string name, std::string lastName, std
 	<< '|' << std::setw(14) << lastName << '|'
 	<< std::setw(14) << nick
 	<< '|' << std::endl;
+}
+
+std::string PhoneBook::truncate(std::string line, int width) const {
+	if ((int)line.length() >= width)
+		return (line.substr(0, 9) + '.');
+	else
+		return (line);
 }
 
 PhoneBook::PhoneBook() {

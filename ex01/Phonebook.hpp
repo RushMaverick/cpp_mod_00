@@ -23,6 +23,7 @@ class PhoneBook {
 		void printHeader();
 		void printSeparator();
 		void printData(int index, std::string name, std::string lastName, std::string nick) const;
+		std::string truncate(std::string line, int width) const;
 		PhoneBook();
 		~PhoneBook();
 };
