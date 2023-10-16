@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:56:26 by rrask             #+#    #+#             */
-/*   Updated: 2023/10/11 12:38:28 by rrask            ###   ########.fr       */
+/*   Updated: 2023/10/16 10:28:01 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ int main (void)
 		std::getline(std::cin, a);
 		if (std::cin.eof()){
 			std::cout << std::flush;
-			std::cout << "Well duck you too." << std::endl;
+			std::cout << "Thank you, goodbye." << std::endl;
 			break; 
 		}
 		else if (a.compare("Exit") == 0) {
+			std::cout << "Thank you, goodbye." << std::endl;
 			break;
 		}
 		else if (a.compare("Add") == 0) {

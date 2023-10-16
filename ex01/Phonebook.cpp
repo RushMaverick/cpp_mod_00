@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:13:03 by rrask             #+#    #+#             */
-/*   Updated: 2023/10/15 11:55:28 by rrask            ###   ########.fr       */
+/*   Updated: 2023/10/16 10:48:26 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ std::string PhoneBook::_readInput(std::string prompt) const {
 
 	while (!std::cin.eof())
 	{
-	std::cout << prompt;
-	if (std::getline(std::cin, line) && line != "")
-		break;
+		std::cout << prompt;
+		if (std::getline(std::cin, line) && line != "")
+			break;
 	}
 	return (line);
 }
@@ -104,7 +104,7 @@ void PhoneBook::printBorder() {
 	std::cout << '+'
 	<< std::setw(15)
 	<< std::setfill('-')
-	<< '+' << std::setw(15)
+	<< '+' << std::setw(14)
 	<< '+' << std::setw(15)
 	<< '+' << std::endl;
 }
@@ -115,29 +115,28 @@ void PhoneBook::printHeader() {
     std::string header3 = "LastName";
     std::string header4 = "NickName";
 
-	//If header < 10 characters, cut off and append a .
 	std::cout << '|'
-	<< std::setw(3) << std::right
+	<< std::setw(10) << std::right
 	<< header1 << '|' <<
-	std::setw(8) << header2
-	<< '|' << std::setw(14)
-	<< header3 << '|' << std::setw(14)
+	std::setw(10) << header2
+	<< '|' << std::setw(10)
+	<< header3 << '|' << std::setw(10)
 	<< header4 << '|' << std::endl;
 }
 
 void PhoneBook::printSeparator() {
 	std::cout << '+'
 	<< std::setw(15) << std::setfill('-')
-	<< '-' << std::setw(15)
+	<< '-' << std::setw(14)
 	<< '-' << std::setw(15)
 	<< '+' << std::endl;
 }
 
 void PhoneBook::printData(int index, std::string name, std::string lastName, std::string nick) const {
-	std::cout << '|' << std::setw(5) << std::right << index << '|'
-	<< std::setw(8) << std::right << name
-	<< '|' << std::setw(14) << lastName << '|'
-	<< std::setw(14) << nick
+	std::cout << '|' << std::setw(10) << std::right << index << '|'
+	<< std::setw(10) << std::right << name
+	<< '|' << std::setw(10) << lastName << '|'
+	<< std::setw(10) << nick
 	<< '|' << std::endl;
 }
 
