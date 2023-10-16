@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:13:03 by rrask             #+#    #+#             */
-/*   Updated: 2023/10/16 10:48:26 by rrask            ###   ########.fr       */
+/*   Updated: 2023/10/16 14:32:16 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ Contact *PhoneBook::getContact(int index) {
 	int index = this->_contactCount;
 	contact = this->getContact(index);
 
-	// When index is over 8, warn about overwrite
 	if (index >= MAX_CONTACTS) {
 		std::cout << "Warning: You are about to overwrite "
 		<< contact->getFirstName() 
 		<< std::endl;
+		index = 0;
 	}
 	std::cout << std::endl;
 	contact->setFirstName(this->_readInput("Enter first name: "));
@@ -66,7 +66,6 @@ void PhoneBook::searchMethod() {
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
 	if (index >= 1 && index <= 8){
-		std::cout << "Is this on" << std::endl;
 		index -= 1;
 		contact = this->getContact(index);
 		if (contact != NULL && contact->getFirstName().compare("") != 0) {
@@ -90,7 +89,7 @@ void PhoneBook::printTable() {
 
 	this->printBorder();
 	this->printHeader();
-	for (int i = 0; i < _contactCount; i++) {
+	for (int i = 0; i < MAX_CONTACTS; i++) {
 		this->printData(i + 1, this->truncate(_contacts[i].getFirstName(), 10), 
 			this->truncate(_contacts[i].getLastName(), 10),
 			this->truncate(_contacts[i].getNickName(), 10));
